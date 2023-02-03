@@ -1,21 +1,21 @@
-import React, {Component} from 'react'
+import React from 'react'
 
-export default class Footer extends Component {
-    
-    render() {
-        return (
-            <>
-            
-                <div style={{display: 'flex' ,alignItems: 'center'}}>
-                    <h3>Developed by Shashank J. Sirothiya</h3>
-                </div>
-                <div>
-                    <a href="" target="_blank" rel="noopener noreferrer"><img src="./instagram.png" alt="" /></a>
-                    <a href="" target="_blank" rel="noopener noreferrer"><img src="/linkedin2.png" alt="" /></a>
-                    <a href="https://github.com/shashankjs2002/" target="_blank" rel="noopener noreferrer"><img src="\github.png" alt="" /></a>
-                </div>
-            </>
-        );
-    }
+const Footer = () => {
+  return (
+    <div className='footer'>
+      <div>
+      <a href='' target='_blank'>Report Bug</a>  <a href='' target='_blank'>Contact Developer</a>
+
+      </div>
+      <div className='footer'>
+        Created by <span>
+          {/* <a target='_blank' href='https://www.shashankj.tech/'> */}
+            Shashank J.
+            {/* </a> */}
+            </span> | © 2023 All rights reserved.
+      </div>
+    </div>
+  )
 }
 
+export default Footer

@@ -9,8 +9,7 @@ import {
     Routes,
     Route,
     useParams,
-    useSearchParams,
-    createSearchParams
+  HashRouter
   } from "react-router-dom";
 import Footer from './components/Footer';
 import SearchState from './context/SearchState';
@@ -37,7 +36,7 @@ const App = () => {
     return ( 
       <>
     
-          <Router>
+          <HashRouter>
             <Navbar/>
             {/* <News/> */}
             {/* <News key="/" query={submitfunc()} max={12} country="in" category="health"/> */}
@@ -59,14 +58,14 @@ const App = () => {
                   {/* <Route exact path={`/search/${query}`} element={<News key="search" max={12} country="in" category="" query = {query}/>}></Route>
                   <Route exact path={`/search/:search`} element={<News key="search" max={12} country="in" category="" query = {search}/>}></Route>
                   <Route path="/query/:query" element={<News key="Search" max={12} country="in" />}></Route> */}
-                  <Route exact path={`10-News/search/:query`} element={<Search  />}/>
+                  <Route exact path={`/search/:query`} element={<Search  />}/>
                 </>
               
               
             </Routes>
-          </Router> 
+          </HashRouter> 
 
-          {/* <Footer/> */}
+          <Footer/>
       
     </>
     )
