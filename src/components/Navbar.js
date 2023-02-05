@@ -41,10 +41,10 @@ const Navbar = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li className="nav-link">
-                    <Link className={`nav-link ${(path==='/') ? 'active': ''}`} to="/">Home</Link>
-                    </li>
-                    <li className={`nav-link ${(path==='/world') ? 'active': ''}`}><Link className="nav-link" to="/world">World</Link></li>
+                    {/* <li className="nav-link">
+                    <Link className={`nav-link ${(path==='/') ? 'active': ''}`} to="/breaking-news/in/hi">Home</Link>
+                    </li> */}
+                    {/* <li className={`nav-link ${(path==='/world') ? 'active': ''}`}><Link className="nav-link" to="/world">World</Link></li>
                     <li className={`nav-link ${(path==='/nation') ? 'active': ''}`}><Link className="nav-link" to="/nation">Nation</Link></li>
                     <li className={`nav-link ${(path==='/business') ? 'active': ''}`}><Link className="nav-link" to="/business">Business</Link></li>
                     <li className={`nav-link ${(path==='/entertainment') ? 'active': ''}`}><Link className="nav-link" to="/entertainment">Entertainment</Link></li>
@@ -52,7 +52,7 @@ const Navbar = () => {
                     <li className={`nav-link ${(path==='/science') ? 'active': ''}`}><Link className="nav-link" to="/science">Science</Link></li>
                     <li className={`nav-link ${(path==='/sports') ? 'active': ''}`}><Link className="nav-link" to="/sports">Sports</Link></li>
                     <li className={`nav-link ${(path==='/technology') ? 'active': ''}`}><Link className="nav-link" to="/technology">Technology</Link></li>
-                    
+                     */}
                     {/* {(query!==null) ? :} */}
                     {/* <li className="nav-item"><Link className="nav-link" to={`/search=${query}`}>Technology</Link></li> */}
 

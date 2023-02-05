@@ -42,6 +42,14 @@
   color: white;
 }
 
+.filter{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filter .ans{
+  margin: 2px 20px;
+}
 .App-link {
   color: #61dafb;
 }

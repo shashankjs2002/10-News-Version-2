@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "10 News",
+  "name": "10 News - Get 10 news at one time in free version.",
  
   "start_url": ".",
   "display": "standalone",

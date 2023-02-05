@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div className='footer'>
       <div>
-      <a href='' target='_blank'>Report Bug</a>  <a href='' target='_blank'>Contact Developer</a>
+      <a href='https://resolve-query.shashankj.tech/' target='_blank'>Report Bug</a>  <a href='https://resolve-query.shashankj.tech/#contactDev-form' target='_blank'>Contact Developer</a>
 
       </div>
       <div className='footer'>

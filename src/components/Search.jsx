@@ -57,10 +57,10 @@ const Search= (props) => {
             {loading && <Spinner/>}
             <div className="row">
                   
-                {!loading && articles.map((element)=>{
+                {!loading && articles.map((element, index)=>{
                     
                     return <div className="col-md-12" key={element.url} >
-                       <NewsItem title={element.title} source={element.source.name} description ={element.description} content ={element.content} imageurl ={element.image} newsUrl={element.url}/> 
+                       <NewsItem index={index} title={element.title} source={element.source.name} description ={element.description} content ={element.content} imageurl ={element.image} newsUrl={element.url}/> 
                     </div>
                 })}
 

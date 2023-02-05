@@ -2,12 +2,13 @@ import React, { Component, useContext, useEffect, useState } from 'react';
 import NewsItem from './NewsItem';
 import PropTypes from 'prop-types'
 import Spinner from './Spinner';
+import { useParams } from 'react-router-dom';
+import { computeHeadingLevel } from '@testing-library/react';
 
 const News= (props) => {
+    let {lang, country,category} = useParams();
+    console.log(lang)
 
-    // const context=useContext(SearchContext)
-    // let {query, setQuery} = context
-    // apiUrl = process.env.REACT_APP_API_URL
     const [articles, setArticles] = useState([])
     const [loading, setLoading] = useState(false)
     const [page, setPage] = useState(1)
@@ -17,16 +18,19 @@ const News= (props) => {
     
     const updateNews= async ()=>{
         // console.log("cdm");
-        // let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=4ead7440fb05472c9e3315666906d761&page=1&max=${this.props.max}`;
-        let uri = `https://gnews.io/api/v4/top-headlines?token=3fb55ca4ddae296e27f04ae96268e2c7&page=1&topic=${props.category}&max=${props.max}&lang=hi&country=${props.country}`;
-        // let url = (this.state.query !== "") ? `https://gnews.io/api/v4/search?q=${this.state.query}&token=3fb55ca4ddae296e27f04ae96268e2c7`: uri
+        if(lang && country && category){
 
-        if(props.query){
-            console.log(props.query)
-            uri = `https://gnews.io/api/v4/search?q=${props.query}&token=3fb55ca4ddae296e27f04ae96268e2c7`
-            // query=null
+            // let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=4ead7440fb05472c9e3315666906d761&page=1&max=${this.props.max}`;
+            let uri = `https://gnews.io/api/v4/top-headlines?token=3fb55ca4ddae296e27f04ae96268e2c7&page=1&topic=${category}&max=${props.max}&lang=${lang}&country=${country}`;
+            // let url = (this.state.query !== "") ? `https://gnews.io/api/v4/search?q=${this.state.query}&token=3fb55ca4ddae296e27f04ae96268e2c7`: uri
+       
+console.log(uri)
+        // if(props.query){
+        //     console.log(props.query)
+        //     uri = `https://gnews.io/api/v4/search?q=${props.query}&token=3fb55ca4ddae296e27f04ae96268e2c7`
+        //     // query=null
                 
-        }
+        
 
         setLoading(true)
 
@@ -42,6 +46,8 @@ const News= (props) => {
         setArticles(parsedData.articles)
         setTotalArticles(parsedData.totalArticles)
         setLoading(false)
+
+    }
         
         // this.setState({articles: parsedData.articles,
         //      totalArticles :parsedData.totalArticles,
@@ -54,7 +60,7 @@ const News= (props) => {
     useEffect(() => {
       updateNews()
     //   query = null
-    }, [])
+    }, [lang, country, category])
     
 
     
@@ -67,15 +73,15 @@ const News= (props) => {
 
         
             
-            <h1 className="text-center my-3">NewsApp- Top {props.category} Headlines</h1>
+            <h1 className="text-center my-3">NewsApp- Top {category} Headlines</h1>
             {loading && <Spinner/>}
             <div className="row">
                   
-                {!loading && articles.map((element)=>{
+                {!loading && articles.map((element, index)=>{
                     
                     return <div className="col-md-12" key={element.url} >
                         {/* <NewsItem title={element.title} description ={element.description} content ={element.content} imageurl ={element.urlToImage} newsUrl={element.url}/>  */}
-                        <NewsItem title={element.title} source={element.source.name} description ={element.description} content ={element.content} imageurl ={element.image} newsUrl={element.url}/> 
+                        <NewsItem index={index} title={element.title} source={element.source.name} description ={element.description} content ={element.content} imageurl ={element.image} newsUrl={element.url}/> 
                     </div>
                 })}
 

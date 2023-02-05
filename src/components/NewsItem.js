@@ -1,8 +1,18 @@
-import React, { Component } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
+import SearchContext from '../context/SearchContext';
+import Modal from './Modal';
 
 const NewsItem = (props) => {
+  const context = useContext(SearchContext)
+  const {modalId, setModalId} = context
+  useEffect(() => {
+    setModalId(modalId+1)
+  }, [])
 
-  let { title, description, imageurl, content, newsUrl, source } = props;
+  let {index, title, description, imageurl, content, newsUrl, source } = props;
+
+  const modalRef = useRef(null)
+
   return <div className="my-3">
     <div className="card" style={{flexDirection:'row', flexWrap:'wrap'}} >
       {/* <span className="badge text-bg-success" styles={{position:"absolute", top: "0", color: "#000"}}>{source}</span> */}
@@ -23,10 +33,22 @@ const NewsItem = (props) => {
 
         <h5 className="card-title">{title}...</h5>
         <p className="card-text">{description ? description : content}...</p>
-        {/* <p className="card-text">{ content}...</p> */}
-        <a rel="noreferrer" href={newsUrl} target="_blank" className="btn btn-dark btn-sm">Read More</a>
+       <div>
+        <button type="button" ref={modalRef} className="btn btn-dark" data-bs-toggle="modal" data-bs-target={"#exampleModal"+index}>
+              Read More
+        </button>
+        {
+          <Modal url={newsUrl} source={source} title = "10 News" id={index}/>
+
+        }
+        
+      </div>
       </div>
     </div>
+
+
+
+    {/* <Modal url={newsUrl}/> */}
   </div>;
 }
 
