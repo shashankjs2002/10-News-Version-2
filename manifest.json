@@ -1,0 +1,9 @@
+{
+  "short_name": "10 News",
+  "name": "10 News - Get 10 news at one time in free version.",
+ 
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
